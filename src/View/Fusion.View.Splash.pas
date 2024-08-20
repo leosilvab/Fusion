@@ -54,30 +54,29 @@ end;
 
 procedure TfrmSplash.FormCreate(Sender: TObject);
 begin
-  FCurrentImageIndex := 0; // Inicializa o índice da imagem atual
-  ShowImage(FCurrentImageIndex); // Mostra a primeira imagem
-  LoadingTimer.Interval := 90; // Intervalo de 1 segundo
-  LoadingTimer.Enabled := True; // Habilita o timer
+  FCurrentImageIndex := 0; 
+  ShowImage(FCurrentImageIndex); 
+  LoadingTimer.Interval := 90;
+  LoadingTimer.Enabled := True; 
   vSeg := 0;
 end;
 
 procedure TfrmSplash.LoadingTimerTimer(Sender: TObject);
 begin
-  // Incrementa o índice da imagem (ciclo de 0 a 4)
   FCurrentImageIndex := (FCurrentImageIndex + 1) mod 5;
-  ShowImage(FCurrentImageIndex); // Mostra a próxima imagem
+  ShowImage(FCurrentImageIndex); 
 end;
 
 procedure TfrmSplash.ShowImage(Index: Integer);
 begin
-  // Esconde todas as imagens
+
   Image1.Visible := False;
   Image2.Visible := False;
   Image3.Visible := False;
   Image4.Visible := False;
   Image5.Visible := False;
 
-  // Mostra a imagem correspondente ao índice
+
   case Index of
     0: Image1.Visible := True;
     1: Image2.Visible := True;
@@ -103,7 +102,7 @@ end;
 
 procedure TfrmSplash.PnlPrincipalClick(Sender: TObject);
 begin
-  // Comportamento ao clicar no painel principal (caso necessário)
+
 end;
 
 end.
