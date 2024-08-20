@@ -1,0 +1,41 @@
+unit Utils;
+
+interface
+
+uses
+Data.DB;
+
+procedure LimparDBGrid(DataSet: TDataSet);
+procedure RefreshDataSet(DataSet: TDataSet);
+
+implementation
+
+uses   System.SysUtils, Vcl.Grids;
+
+  procedure LimparDBGrid(DataSet: TDataSet);
+    begin
+      DataSet.DisableControls;
+      try
+        DataSet.First;
+        while not DataSet.Eof do
+        begin
+          DataSet.Delete;
+        end;
+      finally
+         DataSet.EnableControls;
+      end;
+    end;
+
+
+   procedure RefreshDataSet(DataSet :TDataSet);
+   begin
+        DataSet.DisableControls;
+      Try
+          DataSet.Close;
+          DataSet.Open;
+      Finally
+        DataSet.EnableControls;
+      End;
+   end;
+
+end.

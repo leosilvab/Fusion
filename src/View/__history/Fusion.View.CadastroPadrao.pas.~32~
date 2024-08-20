@@ -1,0 +1,95 @@
+unit Fusion.View.CadastroPadrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Data.DB, Vcl.WinXPanels, Vcl.Grids,
+  Vcl.DBGrids, Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.DBCtrls;
+
+type
+  TfrmCadastroPadrao = class(TForm)
+    PnlHeader: TPanel;
+    PnlBody: TPanel;
+    PnlBotoes: TPanel;
+    CardPadrao: TCardPanel;
+    CadastroPadrao: TCard;
+    PesquisaPadrao: TCard;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    gdUsuario: TDBGrid;
+    NomeText: TEdit;
+    ImageList1: TImageList;
+    PnlTitle: TPanel;
+    iconCadUsuario: TImage;
+    LblTitle: TLabel;
+    Label2: TLabel;
+    PnlContent: TPanel;
+    PnlBtns: TPanel;
+    btnAdicionar: TPanel;
+    Shape2: TShape;
+    Label4: TLabel;
+    SpeedButton2: TSpeedButton;
+    btnFechar: TPanel;
+    Shape6: TShape;
+    Label8: TLabel;
+    SpeedButton6: TSpeedButton;
+    btnCancelar: TPanel;
+    Shape4: TShape;
+    Label6: TLabel;
+    SpeedButton4: TSpeedButton;
+    Image3: TImage;
+    Image4: TImage;
+    Image6: TImage;
+    Panel2: TPanel;
+    Panel7: TPanel;
+    Shape1: TShape;
+    Label3: TLabel;
+    SpeedButton1: TSpeedButton;
+    Image2: TImage;
+    Panel9: TPanel;
+    Shape5: TShape;
+    Label7: TLabel;
+    SpeedButton5: TSpeedButton;
+    Image7: TImage;
+    Panel11: TPanel;
+    Shape7: TShape;
+    Label9: TLabel;
+    SpeedButton7: TSpeedButton;
+    Image8: TImage;
+    Label1: TLabel;
+    Label5: TLabel;
+    procedure btnFecharClick(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroPadrao: TfrmCadastroPadrao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroPadrao.btnFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmCadastroPadrao.FormShow(Sender: TObject);
+begin
+  CardPadrao.ActiveCard := PesquisaPadrao;
+end;
+
+procedure TfrmCadastroPadrao.SpeedButton5Click(Sender: TObject);
+begin
+  CardPadrao.ActiveCard := CadastroPadrao;
+end;
+
+end.

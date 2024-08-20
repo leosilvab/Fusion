@@ -1,0 +1,40 @@
+inherited frmCadastroUsuario: TfrmCadastroUsuario
+  Caption = 'Cadastro de Usuarios'
+  ClientWidth = 722
+  TextHeight = 13
+  inherited TabControl1: TTabControl
+    Width = 722
+    inherited Panel1: TPanel
+      Width = 714
+    end
+    inherited Panel2: TPanel
+      Width = 714
+      Caption = ''
+      object DBGrid1: TDBGrid
+        Left = 16
+        Top = 6
+        Width = 681
+        Height = 235
+        DataSource = DataSource1
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+    inherited PnlBotoes: TPanel
+      Width = 714
+      inherited btnAdicionar: TButton
+        OnClick = btnAdicionarClick
+      end
+    end
+  end
+  inherited ImageList1: TImageList
+    Top = 336
+  end
+  inherited DataSource1: TDataSource
+    DataSet = dmUsuarios.cdsUsuarios
+  end
+end

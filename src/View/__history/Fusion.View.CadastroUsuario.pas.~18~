@@ -1,0 +1,52 @@
+unit Fusion.View.CadastroUsuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Fusion.View.CadastroPadrao,
+  System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Fusiosn.Model.Usuarios, Fusiosn.Model.Conexao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmCadastroUsuario = class(TfrmCadastroPadrao)
+    DBGrid1: TDBGrid;
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroUsuario: TfrmCadastroUsuario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroUsuario.btnAdicionarClick(Sender: TObject);
+begin
+  inherited;
+  dmConexao.FDQuery1.Close;
+  dmConexao.FDQuery1.SQL.Clear;
+  dmConexao.FDQuery1.SQL.Add('select * from fx_usuario');
+  dmConexao.FDQuery1.Open;
+//  dmUsuarios.cdsUsuarios.Close;
+//  dmUsuarios.cdsUsuarios.CommandText := 'select * from fx_usuario';
+//  dmUsuarios.cdsUsuarios.Open;
+end;
+
+procedure TfrmCadastroUsuario.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  if dmConexao.SQLConexao.Connected = True then
+  begin
+  MessageBox(MB_OK, 'Conexão OK!', 'ATENÇÃO', 1);
+  end
+  else
+  MessageBox(MB_OK, 'Conexão Morreu!', 'ATENÇÃO', 1);
+  end;
+
+end.

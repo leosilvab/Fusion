@@ -1,0 +1,62 @@
+unit Utils;
+
+interface
+
+uses
+Data.DB, Fusiosn.Model.Conexao;
+
+procedure LimparDBGrid(DataSet: TDataSet);
+procedure RefreshDataSet(DataSet: TDataSet);
+function FusionSequence(ColumnName, TableName: String): Integer ;
+
+implementation
+
+uses   System.SysUtils, Vcl.Grids;
+
+  procedure LimparDBGrid(DataSet: TDataSet);
+    begin
+      DataSet.DisableControls;
+      try
+        DataSet.First;
+        while not DataSet.Eof do
+        begin
+          DataSet.Delete;
+        end;
+      finally
+         DataSet.EnableControls;
+      end;
+    end;
+
+
+   procedure RefreshDataSet(DataSet :TDataSet);
+   begin
+        DataSet.DisableControls;
+      Try
+          DataSet.Close;
+          DataSet.Open;
+      Finally
+        DataSet.EnableControls;
+      End;
+   end;
+
+
+   function FusionSequence(ColumnName, TableName : String): Integer;
+      var sQuery: String;
+   begin
+       sQuery := 'select max(' + ColumnName + ') +1 from ' + TableName;
+
+       with dmConexao.sqlObject do
+       begin
+         SQL.Text := sQuery;
+         Open;
+         try
+            if not Fields[0].IsNull then
+                Result := Fields[0].AsInteger
+            else
+                Result := 1;
+         finally
+             Close;
+         end;
+       end;
+   end;
+end.

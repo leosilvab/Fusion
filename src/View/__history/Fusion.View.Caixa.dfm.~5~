@@ -1,0 +1,13 @@
+inherited frmCaixa: TfrmCaixa
+  Caption = 'frmCaixa'
+  TextHeight = 13
+  inherited CardPadrao: TCardPanel
+    inherited PesquisaPadrao: TCard
+      inherited Panel3: TPanel
+        inherited Image1: TImage
+          OnClick = Image1Click
+        end
+      end
+    end
+  end
+end

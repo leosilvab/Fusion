@@ -1,0 +1,21 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 296
+  Width = 348
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 272
+    Top = 232
+  end
+  object SQLConexao: TFDConnection
+    Params.Strings = (
+      'DriverID=MySQL'
+      'User_Name=root'
+      'Database=fox_sys'
+      'Password=root')
+    Connected = True
+    Left = 256
+    Top = 88
+  end
+end

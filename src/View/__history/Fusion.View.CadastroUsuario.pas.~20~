@@ -1,0 +1,79 @@
+unit Fusion.View.CadastroUsuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Fusion.View.CadastroPadrao,
+  System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Fusiosn.Model.Usuarios, Fusiosn.Model.Conexao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmCadastroUsuario = class(TfrmCadastroPadrao)
+    DBGrid1: TDBGrid;
+    procedure btnAdicionarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroUsuario: TfrmCadastroUsuario;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TfrmCadastroUsuario.btnAdicionarClick(Sender: TObject);
+begin
+  inherited;
+  if not Assigned(dmUsuarios) then
+  begin
+    ShowMessage('dmUsuarios não está instanciado.');
+    Exit;
+  end;
+
+  if not Assigned(dmUsuarios.cdsUsuarios) then
+  begin
+    ShowMessage('cdsUsuarios não está instanciado.');
+    Exit;
+  end;
+
+  if not Assigned(dmUsuarios.dspUsuarios) then
+  begin
+    ShowMessage('dspUsuarios não está instanciado.');
+    Exit;
+  end;
+
+  if not Assigned(dmUsuarios.sqlUsuarios) then
+  begin
+    ShowMessage('sqlUsuarios não está instanciado.');
+    Exit;
+  end;
+
+  if not dmConexao.SQLConexao.Connected then
+  begin
+    ShowMessage('Conexão com o banco de dados não está ativa.');
+    Exit;
+  end;
+
+  try
+    dmUsuarios.sqlUsuarios.Close;
+    dmUsuarios.sqlUsuarios.SQL.Text := 'select * from fx_usuario';
+    dmUsuarios.sqlUsuarios.Open;
+
+    dmUsuarios.cdsUsuarios.Close;
+    dmUsuarios.cdsUsuarios.SetProvider(dmUsuarios.dspUsuarios);
+    dmUsuarios.cdsUsuarios.Open;
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao abrir cdsUsuarios: ' + E.Message);
+      Exit;
+    end;
+  end;
+end;
+
+end.

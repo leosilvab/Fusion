@@ -1,0 +1,27 @@
+unit Fusion.View.CadUsuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Fusion.View.CadastroPadrao,
+  System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Fusiosn.Model.Conexao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmCadastroPadrao1 = class(TfrmCadastroPadrao)
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroPadrao1: TfrmCadastroPadrao1;
+
+implementation
+
+{$R *.dfm}
+
+end.

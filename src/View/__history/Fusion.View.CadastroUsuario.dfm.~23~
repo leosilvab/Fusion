@@ -1,0 +1,19 @@
+inherited frmCadastroUsuario: TfrmCadastroUsuario
+  Caption = 'Cadastro de Usuarios'
+  TextHeight = 13
+  inherited CardPanel1: TCardPanel
+    inherited PesquisaPadrao: TCard
+      inherited Panel4: TPanel
+        inherited DBGrid1: TDBGrid
+          Top = 6
+        end
+      end
+    end
+  end
+  inherited ImageList1: TImageList
+    Top = 336
+  end
+  inherited DataSource1: TDataSource
+    DataSet = dmUsuarios.cdsUsuarios
+  end
+end

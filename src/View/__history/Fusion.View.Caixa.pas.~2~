@@ -1,0 +1,40 @@
+unit Fusion.View.Caixa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Fusion.View.CadastroPadrao, Data.DB,
+  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.WinXPanels, Fusiosn.Model.Usuarios, Utils;
+
+type
+  TfrmCadastroPadrao1 = class(TfrmCadastroPadrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+  procedure Pesquisar; override;
+  end;
+
+var
+  frmCadastroPadrao1: TfrmCadastroPadrao1;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmCadastroPadrao1 }
+
+procedure TfrmCadastroPadrao1.Pesquisar;
+  var sFiltro : String;
+begin
+  inherited;
+  sFiltro := Utils.LikeFind(NomeText.Text, gdUsuario);
+  dmUsuarios.cdsUsuarios.Close;
+  dmUsuarios.cdsUsuarios.CommandText := 'select * from fx_usuario' + sFiltro;
+  dmUsuarios.cdsUsuarios.Open;
+end;
+
+end.

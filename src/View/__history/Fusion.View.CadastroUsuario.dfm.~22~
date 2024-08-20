@@ -1,0 +1,26 @@
+inherited frmCadastroUsuario: TfrmCadastroUsuario
+  Caption = 'Cadastro de Usuarios'
+  TextHeight = 13
+  inherited CardPanel1: TCardPanel
+    ExplicitWidth = 718
+    ExplicitHeight = 569
+    inherited CadastroPadrao: TCard
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 720
+      ExplicitHeight = 568
+    end
+    inherited PesquisaPadrao: TCard
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 759
+      ExplicitHeight = 568
+    end
+  end
+  inherited ImageList1: TImageList
+    Top = 336
+  end
+  inherited DataSource1: TDataSource
+    DataSet = dmUsuarios.cdsUsuarios
+  end
+end

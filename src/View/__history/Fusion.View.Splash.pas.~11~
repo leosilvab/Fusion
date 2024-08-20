@@ -1,0 +1,102 @@
+unit Fusion.View.Splash;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Imaging.GIFImg, Math;
+
+type
+  TfrmSplash = class(TForm)
+    PnlPrincipal: TPanel;
+    imgLogo: TImage;
+    LoadingTimer: TTimer;
+    lbStatus: TLabel;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    procedure LoadingTimerTimer(Sender: TObject);
+    procedure PnlPrincipalClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    var vSeg : Integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmSplash: TfrmSplash;
+//  GIFImage: TGIFImage;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TfrmSplash.FormCreate(Sender: TObject);
+begin
+
+  vSeg := 0;
+
+
+   // GIF
+//  (Image1.Picture.Graphic as TGIFImage).Animate:=true;
+
+end;
+
+procedure TfrmSplash.LoadingTimerTimer(Sender: TObject);
+
+begin
+
+ vSeg := vSeg + 1;
+if vSeg >= 5 then
+  begin
+    LoadingTimer.Enabled := False;
+    Image1.Visible := False;
+    Image2.Visible := True;
+    LoadingTimer.Enabled := True;
+  end;
+
+  if vSeg >= 10 then
+  begin
+  LoadingTimer.Enabled := False;
+  Image2.Visible := False;
+  Image3.Visible := True;
+  LoadingTimer.Enabled := True;
+  end;
+
+  if vSeg >= 15 then
+  begin
+  LoadingTimer.Enabled := False;
+  Image3.Visible := False;
+  Image4.Visible := True;
+  LoadingTimer.Enabled := True;
+  end;
+
+  if vSeg >= 20 then
+  begin
+  LoadingTimer.Enabled := False;
+  Image4.Visible := False;
+  Image1.Visible := True;
+  LoadingTimer.Enabled := False;
+  vSeg := 0;
+  end;
+
+end;
+
+
+procedure TfrmSplash.PnlPrincipalClick(Sender: TObject);
+begin
+//  Image1.Picture.LoadFromFile('C:\Users\leosb\OneDrive\Documentos\Embarcadero\Studio\Projects\Fusion\src\img\Loading.gif');
+
+end;
+
+
+
+
+
+
+end.

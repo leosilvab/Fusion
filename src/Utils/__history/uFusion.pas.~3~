@@ -1,0 +1,20 @@
+unit uFusion;
+
+interface
+  type TuFusion = class
+    class function GetID : String;
+  end;
+
+implementation
+
+uses
+System.SysUtils
+
+{ TuFusion }
+
+//class function TuFusion.GetID: String;
+//begin
+//   Result := TGUID.NewGuid.ToString;
+//end;
+
+//end.

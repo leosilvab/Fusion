@@ -1,0 +1,26 @@
+unit Fusion;
+
+interface
+
+
+implementation
+
+uses   System.SysUtils, Vcl.Grids, Data.DB;
+  procedure LimparDBGrid(DataSet: TDataSet);
+
+
+  procedure LimparDBGrid(DataSet: TDataSet);
+    begin
+      DataSet.DisableControls;
+      try
+        DataSet.First;
+        while not DataSet.Eof do
+        begin
+          DataSet.Delete;
+        end;
+      finally
+         DataSet.EnableControls;
+      end;
+    end;
+
+end,

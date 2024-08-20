@@ -1,0 +1,51 @@
+unit Fusion.View.Splash;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Imaging.GIFImg;
+
+type
+  TfrmSplash = class(TForm)
+    PnlPrincipal: TPanel;
+    imgLogo: TImage;
+    StatusBar: TProgressBar;
+    lbStatus: TLabel;
+    LoadingTimer: TTimer;
+    Image1: TImage;
+    procedure LoadingTimerTimer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmSplash: TfrmSplash;
+  GIFImage: TGIFImage;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmSplash.LoadingTimerTimer(Sender: TObject);
+begin
+  if statusBar.Position <= 100 then
+  begin
+    statusBar.StepIt;
+    case statusBar.Position of
+     10 : lbStatus.Caption := 'Carregando Informações...';
+     50 : lbStatus.Caption := 'Conectando ao Servidor...';
+     75 : lbStatus.Caption := 'Conectando ao Banco de Dados...';
+     100 : lbStatus.Caption := 'Conectado!';
+    end;
+    if statusBar.Position = 110 then
+    begin
+      Close;
+    end;
+  end;
+end;
+
+end.

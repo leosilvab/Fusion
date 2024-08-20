@@ -1,0 +1,46 @@
+unit Fusion.View.AtualizaSenha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.Buttons;
+
+type
+  TfrmAtualizaSenha = class(TForm)
+    pnlBG: TPanel;
+    pnlDados: TPanel;
+    pnl_user: TPanel;
+    lbNome: TLabel;
+    edtNome: TEdit;
+    lineNome: TPanel;
+    pnl_Senha: TPanel;
+    lbSenha: TLabel;
+    edtSenha: TEdit;
+    lineSenha: TPanel;
+    pnl_CSenha: TPanel;
+    lbCSenha: TLabel;
+    edtCSenha: TEdit;
+    lineCSenha: TPanel;
+    btnAdicionar: TPanel;
+    Shape2: TShape;
+    Label4: TLabel;
+    SpeedButton2: TSpeedButton;
+    Image3: TImage;
+    lbSubTitulo: TLabel;
+    Panel1: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAtualizaSenha: TfrmAtualizaSenha;
+
+implementation
+
+{$R *.dfm}
+
+end.
