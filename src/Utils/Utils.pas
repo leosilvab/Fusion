@@ -87,7 +87,7 @@ uses   System.SysUtils, Vcl.Grids, Windows, Forms, Classes;
     if sChave <> '' then
        Key := sChave
     else
-       Key := '05553082609 S839J3SKLJWFOJ  SLDKFO939(O)#2MSO234~@U0IDIIJJ*JKS698ZXCVZX9A_05.456.725/0001-02';
+       Key := '05553082609 S839J3SKLJWFOJ  SLDKFO939(O)#2MSO234~@U0IDIIJJ*JKS698ZXCVZX9A_15.123.456/9991-99';
 
     Dest := '';
     KeyLen := Length(Key);
